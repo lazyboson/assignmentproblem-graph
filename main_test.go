@@ -7,7 +7,7 @@ import (
 
 var (
 	maxAgents = 15000
-	maxTasks  = 15000
+	maxTasks  = 1500
 )
 
 /*

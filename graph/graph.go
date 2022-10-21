@@ -12,6 +12,7 @@ type Graph struct {
 	pairU  []int
 	pairV  []int
 	dist   []int
+	curr   int
 }
 
 var (
@@ -44,6 +45,7 @@ func (g *Graph) dfs(u int) bool {
 				if g.dfs(g.pairV[val]) {
 					g.pairV[val] = u
 					g.pairU[u] = val
+					g.curr = val
 					return true
 				}
 			}
@@ -99,16 +101,25 @@ func (g *Graph) HopcroftKarp() {
 		g.pairV[index] = 0
 	}
 
+	matchingSet := make(map[int]int)
 	result := 0
 	for g.bfs() == true {
 		for i := 1; i <= g.agents; i++ {
 			if g.pairU[i] == 0 && g.dfs(i) {
+				matchingSet[i] = g.curr
 				result += 1
 			}
 		}
 	}
 
-	fmt.Printf("Maximum Cardinality Matching for given graph :%d ", result)
+	fmt.Println("matching edges")
+
+	for key, val := range matchingSet {
+		fmt.Printf("agent: %d assigned to task: %d\n", key, val)
+	}
+
+	fmt.Printf("Maximum Cardinality Matching for given graph :%d\n", result)
+
 }
 
 func (g *Graph) Kuhn() {
