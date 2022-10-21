@@ -10,5 +10,5 @@ func main() {
 	g.AddEdges(3, 2)
 	g.AddEdges(4, 2)
 	g.AddEdges(4, 4)
-	g.HopcroftKart()
+	g.HopcroftKarp()
 }

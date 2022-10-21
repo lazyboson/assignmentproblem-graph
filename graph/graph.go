@@ -87,8 +87,8 @@ func (g *Graph) bfs() bool {
 	return g.dist[baseIndex] != INF
 }
 
-// HopcroftKart This is Printing Maximum bipartite matching -- exact assignment can be also printed
-func (g *Graph) HopcroftKart() {
+// HopcroftKarp This is Printing Maximum bipartite matching -- exact assignment can be also printed
+func (g *Graph) HopcroftKarp() {
 	g.pairU = make([]int, g.agents+1)
 	g.pairV = make([]int, g.tasks+1)
 	g.dist = make([]int, g.agents+1)
