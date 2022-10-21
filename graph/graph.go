@@ -110,3 +110,20 @@ func (g *Graph) HopcroftKarp() {
 
 	fmt.Printf("Maximum Cardinality Matching for given graph :%d ", result)
 }
+
+func (g *Graph) Kuhn() {
+	matchingGroups := make([]int, g.agents)
+	visited := make([]bool, g.agents)
+
+	for index, _ := range matchingGroups {
+		matchingGroups[index] = -1
+	}
+
+	for index, _ := range visited {
+		visited[index] = false
+	}
+
+	for iter := 1; iter <= g.agents; iter++ {
+
+	}
+}
