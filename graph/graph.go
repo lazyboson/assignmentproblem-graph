@@ -90,6 +90,7 @@ func (g *Graph) bfs() bool {
 }
 
 // HopcroftKarp This is Printing Maximum bipartite matching -- exact assignment can be also printed
+// Running complexity is O(edges*sqrt(vertices)) -- which is quit fast
 func (g *Graph) HopcroftKarp() {
 	g.pairU = make([]int, g.agents+1)
 	g.pairV = make([]int, g.tasks+1)
@@ -120,21 +121,4 @@ func (g *Graph) HopcroftKarp() {
 
 	fmt.Printf("Maximum Cardinality Matching for given graph :%d\n", result)
 
-}
-
-func (g *Graph) Kuhn() {
-	matchingGroups := make([]int, g.agents)
-	visited := make([]bool, g.agents)
-
-	for index, _ := range matchingGroups {
-		matchingGroups[index] = -1
-	}
-
-	for index, _ := range visited {
-		visited[index] = false
-	}
-
-	for iter := 1; iter <= g.agents; iter++ {
-
-	}
 }
