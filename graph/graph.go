@@ -91,7 +91,7 @@ func (g *Graph) bfs() bool {
 
 // HopcroftKarp This is Printing Maximum bipartite matching -- exact assignment can be also printed
 // Running complexity is O(edges*sqrt(vertices)) -- which is quit fast
-func (g *Graph) HopcroftKarp() {
+func (g *Graph) HopcroftKarp() map[int]int {
 	g.pairU = make([]int, g.agents+1)
 	g.pairV = make([]int, g.tasks+1)
 	g.dist = make([]int, g.agents+1)
@@ -104,7 +104,7 @@ func (g *Graph) HopcroftKarp() {
 
 	matchingSet := make(map[int]int)
 	result := 0
-	for g.bfs() == true {
+	for g.bfs() {
 		for i := 1; i <= g.agents; i++ {
 			if g.pairU[i] == 0 && g.dfs(i) {
 				matchingSet[i] = g.curr
@@ -113,12 +113,7 @@ func (g *Graph) HopcroftKarp() {
 		}
 	}
 
-	fmt.Println("matching edges")
-
-	for key, val := range matchingSet {
-		fmt.Printf("agent: %d assigned to task: %d\n", key, val)
-	}
-
 	fmt.Printf("Maximum Cardinality Matching for given graph :%d\n", result)
 
+	return matchingSet
 }
