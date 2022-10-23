@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/lazyboson/assignmentproblem/Agents"
+	"github.com/lazyboson/assignmentproblem/agents"
 	"github.com/lazyboson/assignmentproblem/graph"
 	"github.com/lazyboson/assignmentproblem/queue/consumer"
 	"github.com/lazyboson/assignmentproblem/queue/producer"
@@ -30,7 +30,7 @@ func main() {
 		return
 	}
 	// producer of rabbit mq
-	for i := 0; i < 4; i++ {
+	for i := 0; i < 10; i++ {
 		taskData := tasks.GenerateTask()
 		body, err := json.Marshal(taskData)
 		if err != nil {
@@ -49,7 +49,7 @@ func main() {
 	c.Start()
 
 	// get auxiliary constructed agents -- this should be driven by presence service
-	agents := Agents.GenerateAgents()
+	agents := agents.GenerateAgents()
 
 	// sleeping here to get consumer data here as it is in separate goroutine -- not the best way to do -- for testing purpose ok
 	time.Sleep(2 * time.Second)

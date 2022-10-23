@@ -82,7 +82,7 @@ func (c *MQConsumer) handleMessages(deliveries <-chan amqp.Delivery) {
 			log.Println("error:: ", err)
 		}
 		c.TaskList = append(c.TaskList, task)
-		message.Ack(false)
+		message.Acknowledger.Ack(1, false)
 	}
 
 }

@@ -1,4 +1,4 @@
-package Agents
+package agents
 
 import (
 	"github.com/lazyboson/assignmentproblem/tasks"
@@ -13,7 +13,7 @@ type Agent struct {
 func GenerateAgents() []*Agent {
 	agents := make([]*Agent, 0)
 
-	for i := 1; i <= 5; i++ {
+	for i := 1; i <= 10; i++ {
 		pAgent := &Agent{
 			AgentId:         ksuid.New().String(),
 			AgentExpression: tasks.GetRandomSkill(),
