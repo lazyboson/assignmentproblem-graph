@@ -13,7 +13,7 @@ type Agent struct {
 func GenerateAgents() []*Agent {
 	agents := make([]*Agent, 0)
 
-	for i := 1; i <= 20; i++ {
+	for i := 1; i <= 5; i++ {
 		pAgent := &Agent{
 			AgentId:         ksuid.New().String(),
 			AgentExpression: tasks.GetRandomSkill(),
