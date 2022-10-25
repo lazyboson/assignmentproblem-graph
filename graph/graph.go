@@ -90,15 +90,15 @@ func (g *Graph) bfs() bool {
 }
 
 // HopcroftKarp This is Printing Maximum bipartite matching -- exact assignment can be also printed
-// Running complexity is O(edges*sqrt(vertices)) -- which is quit fast
+// Running complexity is O(edges*sqrt(vertices)) -- which is quite fast
 func (g *Graph) HopcroftKarp() map[int]int {
 	g.pairU = make([]int, g.agents+1)
 	g.pairV = make([]int, g.tasks+1)
 	g.dist = make([]int, g.agents+1)
-	for index, _ := range g.pairU {
+	for index := range g.pairU {
 		g.pairU[index] = 0
 	}
-	for index, _ := range g.pairV {
+	for index := range g.pairV {
 		g.pairV[index] = 0
 	}
 
